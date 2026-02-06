@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 CHAMPIONS LEAGUE PREDICTOR - SISTEMA COMPLETO
-Integración final del sistema asíncrono Champions League
+Sistema asíncrono especializado para UEFA Champions League
 """
 
 import os
@@ -284,6 +284,10 @@ class ChampionsLeaguePredictorSystem:
         # Características Champions
         print(f"   🌍 Factores Champions: {len(self.predictor.champions_weights)}")
         print(f"   ⚡ Cola predicciones: {self.interface.prediction_queue.qsize()}")
+        
+        # Última actualización
+        if self.last_update:
+            print(f"   🕐 Última actualización: {self.last_update.isoformat()}")
         
         print("-" * 50)
     
