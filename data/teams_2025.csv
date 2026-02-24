@@ -1,21 +1,463 @@
-id,name,shortName,tla,founded,venue,clubColors,name_clean
-57,Arsenal FC,Arsenal,ARS,1886,Emirates Stadium,Red / White,Arsenal FC
-58,Aston Villa FC,Aston Villa,AVL,1872,Villa Park,Claret / Sky Blue,Aston Villa FC
-61,Chelsea FC,Chelsea,CHE,1905,Stamford Bridge,Royal Blue / White,Chelsea FC
-62,Everton FC,Everton,EVE,1878,Goodison Park,Blue / White,Everton FC
-63,Fulham FC,Fulham,FUL,1879,Craven Cottage,White / Black,Fulham FC
-64,Liverpool FC,Liverpool,LIV,1892,Anfield,Red / White,Liverpool FC
-65,Manchester City FC,Man City,MCI,1880,Etihad Stadium,Sky Blue / White,Manchester City FC
-66,Manchester United FC,Man United,MUN,1878,Old Trafford,Red / White,Manchester United FC
-67,Newcastle United FC,Newcastle,NEW,1881,St. James' Park,Black / White,Newcastle United FC
-71,Sunderland AFC,Sunderland,SUN,1879,Stadium of Light,Red / White,Sunderland AFC
-73,Tottenham Hotspur FC,Tottenham,TOT,1882,Tottenham Hotspur Stadium,Navy Blue / White,Tottenham Hotspur FC
-76,Wolverhampton Wanderers FC,Wolverhampton,WOL,1877,Molineux Stadium,Black / Gold,Wolverhampton Wanderers FC
-328,Burnley FC,Burnley,BUR,1881,Turf Moor,Claret / Sky Blue,Burnley FC
-341,Leeds United FC,Leeds United,LEE,1904,Elland Road,White / Blue,Leeds United FC
-351,Nottingham Forest FC,Nottingham,NOT,1865,The City Ground,Red / White,Nottingham Forest FC
-354,Crystal Palace FC,Crystal Palace,CRY,1905,Selhurst Park,Red / Blue,Crystal Palace FC
-397,Brighton & Hove Albion FC,Brighton Hove,BHA,1898,The American Express Community Stadium,Blue / White,Brighton & Hove Albion FC
-402,Brentford FC,Brentford,BRE,1889,Griffin Park,Red / White / Black,Brentford FC
-563,West Ham United FC,West Ham,WHU,1895,London Stadium,Claret / Sky Blue,West Ham United FC
-1044,AFC Bournemouth,Bournemouth,BOU,1890,Vitality Stadium,Red / Black,AFC Bournemouth
+team_name,season,competitions
+1. FC Heidenheim 1846,2024-25,conference
+1. FSV Mainz 05,2025-26,conference
+1899 Hoffenheim,2024-25,europa_league
+AC Milan,2024-25,champions
+AC Sparta Praha,2024-25,champions
+AC Sparta Praha,2025-26,conference
+ACF Fiorentina,2024-25,conference
+ACF Fiorentina,2025-26,conference
+AEK Athen,2024-25,conference
+AEK Athen,2025-26,conference
+AEK Larnaca,2024-25,conference
+AEK Larnaca,2025-26,europa_league
+AFC Ajax,2024-25,europa_league
+AFC Ajax,2025-26,champions
+AIK Solna,2025-26,conference
+APOEL Nikosia,2024-25,"champions, conference, europa_league"
+AS Monaco FC,2024-25,champions
+AS Monaco FC,2025-26,champions
+AS Roma,2024-25,europa_league
+AZ Alkmaar,2024-25,europa_league
+AZ Alkmaar,2025-26,conference
+Aberdeen FC,2025-26,europa_league
+Araz-Naxçıvan PFK,2025-26,conference
+Arda Kardzhali,2025-26,conference
+Aris Limassol,2025-26,conference
+Aris Saloniki,2025-26,conference
+Arsenal FC,2024-25,champions
+Arsenal FC,2025-26,champions
+Aston Villa FC,2024-25,champions
+Atalanta BC,2024-25,champions
+Atalanta BC,2025-26,champions
+Athletic Club,2024-25,europa_league
+Athletic Club,2025-26,champions
+Atlétic Escaldes,2024-25,conference
+Atlétic Escaldes,2025-26,conference
+Austria Wien,2024-25,conference
+Austria Wien,2025-26,conference
+B36 Tórshavn,2024-25,conference
+BFC Daugavpils,2025-26,conference
+BK Häcken,2024-25,conference
+BK Häcken,2025-26,"conference, europa_league"
+BSC Young Boys,2024-25,champions
+BSC Young Boys,2025-26,europa_league
+Bala Town,2024-25,conference
+Banga Gargždai,2025-26,conference
+Baník Ostrava,2024-25,conference
+Baník Ostrava,2025-26,"conference, europa_league"
+Bayer 04 Leverkusen,2024-25,champions
+Bayer 04 Leverkusen,2025-26,champions
+Beitar Jerusalem,2025-26,conference
+Beşiktaş,2024-25,europa_league
+Beşiktaş,2025-26,"conference, europa_league"
+Birkirkara FC,2025-26,conference
+Bologna FC 1909,2024-25,champions
+Borac Banja Luka,2024-25,"champions, conference, europa_league"
+Borac Banja Luka,2025-26,conference
+Borussia Dortmund,2024-25,champions
+Borussia Dortmund,2025-26,champions
+Botev Plovdiv,2024-25,"conference, europa_league"
+Breiðablik,2024-25,conference
+Breiðablik,2025-26,"champions, conference, europa_league"
+Brøndby IF,2024-25,conference
+Brøndby IF,2025-26,conference
+CD Santa Clara,2025-26,conference
+CFR Cluj,2024-25,conference
+CFR Cluj,2025-26,"conference, europa_league"
+CS Petrocub,2024-25,"champions, conference, europa_league"
+CS Petrocub,2025-26,conference
+CS Universitatea Craiova,2024-25,conference
+CS Universitatea Craiova,2025-26,conference
+CSKA 1948 Sofia,2024-25,conference
+Caernarfon Town,2024-25,conference
+Celtic FC,2024-25,champions
+Celtic FC,2025-26,champions
+Cercle Brugge,2024-25,"conference, europa_league"
+Chelsea FC,2024-25,conference
+Chelsea FC,2025-26,champions
+Cherno More Varna,2024-25,conference
+Cherno More Varna,2025-26,conference
+Cliftonville FC,2024-25,conference
+Cliftonville FC,2025-26,conference
+Club Atlético de Madrid,2024-25,champions
+Club Atlético de Madrid,2025-26,champions
+Club Brugge KV,2024-25,champions
+Club Brugge KV,2025-26,champions
+Connah's Quay Nomads,2024-25,conference
+Crusaders FC,2024-25,conference
+Crystal Palace,2025-26,conference
+Derry City,2024-25,conference
+Dila Gori,2025-26,conference
+Dinamo Batumi,2024-25,"champions, conference"
+Dinamo Brest,2025-26,conference
+Dinamo Kiev,2024-25,"champions, europa_league"
+Dinamo Kiev,2025-26,"champions, europa_league"
+Dinamo Minsk,2024-25,"champions, conference, europa_league"
+Dinamo Minsk,2025-26,"champions, conference"
+Dinamo Tbilisi,2024-25,conference
+Djurgårdens IF,2024-25,conference
+Drita Gjilan,2024-25,conference
+Dundee United,2025-26,conference
+Dungannon Swifts,2025-26,conference
+Egnatia Rrogozhine,2024-25,"champions, conference"
+Egnatia Rrogozhine,2025-26,"champions, conference"
+Eintracht Frankfurt,2024-25,europa_league
+Eintracht Frankfurt,2025-26,champions
+F91 Dudelange,2024-25,conference
+F91 Dudelange,2025-26,conference
+FA Šiauliai,2024-25,conference
+FC Ararat-Armenia,2024-25,conference
+FC Ararat-Armenia,2025-26,conference
+FC Barcelona,2024-25,champions
+FC Barcelona,2025-26,champions
+FC Basel 1893,2025-26,champions
+FC Bayern München,2024-25,champions
+FC Bayern München,2025-26,champions
+FC Corvinul Hunedoara,2024-25,"conference, europa_league"
+FC DAC 1904,2024-25,conference
+FC Differdange 03,2024-25,"champions, conference"
+FC Differdange 03,2025-26,"champions, conference"
+FC Dinamo City,2025-26,conference
+FC Flora,2024-25,"champions, conference"
+FC Flora,2025-26,conference
+FC Hegelmann,2025-26,conference
+FC Iberia 1999,2024-25,conference
+FC Iberia 1999,2025-26,"champions, conference"
+FC Internazionale Milano,2024-25,champions
+FC Internazionale Milano,2025-26,champions
+FC Koper,2025-26,conference
+FC Košice,2025-26,conference
+FC København,2024-25,conference
+FC København,2025-26,champions
+FC Lausanne-Sport,2025-26,conference
+FC Lugano,2024-25,"champions, conference, europa_league"
+FC Lugano,2025-26,"conference, europa_league"
+FC Midtjylland,2024-25,"champions, europa_league"
+FC Midtjylland,2025-26,europa_league
+FC Milsami,2024-25,conference
+FC Milsami,2025-26,"champions, conference"
+FC Noah,2024-25,conference
+FC Noah,2025-26,"champions, conference, europa_league"
+FC Porto,2024-25,europa_league
+FC Prishtina,2025-26,"conference, europa_league"
+FC Red Bull Salzburg,2024-25,champions
+FC Red Bull Salzburg,2025-26,champions
+FC Santa Coloma,2025-26,conference
+FC Sheriff,2024-25,"conference, europa_league"
+FC Sheriff,2025-26,"conference, europa_league"
+FC St. Gallen,2024-25,conference
+FC Struga,2024-25,"champions, conference"
+FC Twente,2024-25,"champions, europa_league"
+FC Urartu,2024-25,conference
+FC Urartu,2025-26,conference
+FC Utrecht,2025-26,europa_league
+FC Vaduz,2024-25,conference
+FC Vaduz,2025-26,conference
+FC Zimbru,2024-25,conference
+FC Zimbru,2025-26,conference
+FC Zürich,2024-25,conference
+FCB Magpies,2024-25,conference
+FCB Magpies,2025-26,conference
+FCI Levadia,2024-25,conference
+FCI Levadia,2025-26,"champions, conference"
+FCSB,2024-25,"champions, europa_league"
+FCSB,2025-26,"champions, europa_league"
+FK Aktobe,2024-25,conference
+FK Aktobe,2025-26,"conference, europa_league"
+FK Astana,2024-25,conference
+FK Astana,2025-26,conference
+FK Auda,2024-25,conference
+FK Auda,2025-26,conference
+FK Bodø/Glimt,2024-25,"champions, europa_league"
+FK Bodø/Glimt,2025-26,champions
+FK Budućnost Podgorica,2024-25,conference
+FK Budućnost Podgorica,2025-26,"champions, conference"
+FK Crvena Zvezda,2024-25,champions
+FK Crvena Zvezda,2025-26,champions
+FK Dečić Tuzi,2024-25,"champions, conference"
+FK Dečić Tuzi,2025-26,conference
+FK Isloch Minsk,2024-25,conference
+FK Kairat,2025-26,champions
+FK Liepāja,2024-25,conference
+FK Mladá Boleslav,2024-25,conference
+FK Mornar,2024-25,conference
+FK Novi Pazar,2025-26,conference
+FK Oleksandriya,2025-26,conference
+FK Ordabasy,2024-25,"champions, conference"
+FK Ordabasy,2025-26,conference
+FK Panevėžys,2024-25,"champions, conference, europa_league"
+FK Partizani,2024-25,conference
+FK Partizani,2025-26,conference
+FK RFS,2024-25,"champions, europa_league"
+FK RFS,2025-26,"champions, conference, europa_league"
+FK Rabotnički,2025-26,conference
+FK Radnički 1923,2024-25,conference
+FK Radnički 1923,2025-26,conference
+FK Sarajevo,2024-25,conference
+FK Sarajevo,2025-26,conference
+FK Shakhtar Donetsk,2024-25,champions
+FK Shakhtar Donetsk,2025-26,"conference, europa_league"
+FK Sutjeska,2025-26,conference
+FK TransINVEST,2024-25,conference
+FK Vllaznia,2024-25,conference
+FK Vllaznia,2025-26,conference
+FK Žalgiris,2024-25,conference
+FK Žalgiris,2025-26,"champions, conference"
+Fehérvár FC,2024-25,conference
+Fenerbahçe,2024-25,"champions, europa_league"
+Fenerbahçe,2025-26,champions
+Ferencvárosi TC,2024-25,"champions, europa_league"
+Ferencvárosi TC,2025-26,champions
+Feyenoord Rotterdam,2024-25,champions
+Feyenoord Rotterdam,2025-26,champions
+Floriana FC,2024-25,conference
+Floriana FC,2025-26,conference
+Fredrikstad FK,2025-26,"conference, europa_league"
+GFK Tikvesh,2024-25,conference
+GNK Dinamo Zagreb,2024-25,champions
+Galatasaray SK,2024-25,"champions, europa_league"
+Galatasaray SK,2025-26,champions
+Girona FC,2024-25,champions
+Go Ahead Eagles,2024-25,conference
+Győri ETO FC,2025-26,conference
+HB Tórshavn,2024-25,conference
+HB Tórshavn,2025-26,conference
+HJK Helsinki,2024-25,"champions, conference"
+HJK Helsinki,2025-26,conference
+HNK Rijeka,2024-25,"conference, europa_league"
+HNK Rijeka,2025-26,"champions, europa_league"
+Hajduk Split,2024-25,conference
+Hajduk Split,2025-26,conference
+Hammarby IF,2025-26,conference
+Hamrun Spartans,2024-25,"champions, conference"
+Hamrun Spartans,2025-26,"champions, conference, europa_league"
+Hapoel Be'er Sheva,2024-25,conference
+Hapoel Be'er Sheva,2025-26,"conference, europa_league"
+Haverfordwest County,2025-26,conference
+Heart of Midlothian,2024-25,"conference, europa_league"
+Hibernian FC,2025-26,"conference, europa_league"
+Hibernians FC,2025-26,conference
+IF Elfsborg,2024-25,europa_league
+Ilves Tampere,2024-25,conference
+Ilves Tampere,2025-26,"conference, europa_league"
+Inter Club d'Escaldes,2024-25,conference
+Inter Club d'Escaldes,2025-26,"champions, conference"
+JK Nõmme Kalju,2025-26,conference
+JK Tallinna Kalev,2024-25,conference
+Jagiellonia Białystok,2024-25,"champions, conference, europa_league"
+Jagiellonia Białystok,2025-26,conference
+Juventus FC,2024-25,champions
+Juventus FC,2025-26,champions
+KA Akureyri,2025-26,conference
+KAA Gent,2024-25,conference
+KF Ballkani,2024-25,"champions, conference"
+KF Ballkani,2025-26,conference
+KF Drita,2025-26,"champions, conference, europa_league"
+KF Llapi,2024-25,"conference, europa_league"
+KF Malisheva,2024-25,conference
+KF Malisheva,2025-26,conference
+KF Shkëndija 79,2024-25,conference
+KF Shkëndija 79,2025-26,"champions, europa_league"
+KF Tiranë,2024-25,conference
+KRC Genk,2025-26,europa_league
+Kauno Žalgiris,2025-26,conference
+Kilmarnock FC,2024-25,"conference, europa_league"
+Kryvbas Kryvyi Rih,2024-25,"conference, europa_league"
+Kuopion PS,2024-25,conference
+Kuopion PS,2025-26,"champions, europa_league"
+KÍ Klaksvík,2024-25,"champions, conference, europa_league"
+KÍ Klaksvík,2025-26,conference
+LASK,2024-25,"conference, europa_league"
+Larne FC,2024-25,"champions, conference"
+Larne FC,2025-26,conference
+Lazio Roma,2024-25,europa_league
+Lech Poznań,2025-26,"champions, europa_league"
+Legia Warszawa,2024-25,conference
+Legia Warszawa,2025-26,"conference, europa_league"
+Levski Sofia,2025-26,"conference, europa_league"
+Lille OSC,2024-25,champions
+Lincoln Red Imps,2024-25,"champions, conference, europa_league"
+Lincoln Red Imps,2025-26,"champions, europa_league"
+Linfield FC,2024-25,conference
+Linfield FC,2025-26,"champions, conference"
+Liverpool FC,2024-25,champions
+Liverpool FC,2025-26,champions
+MFK Ružomberok,2024-25,"conference, europa_league"
+Maccabi Haifa,2024-25,conference
+Maccabi Haifa,2025-26,conference
+Maccabi Petach-Tikva,2024-25,"conference, europa_league"
+Maccabi Tel Aviv,2024-25,"champions, europa_league"
+Maccabi Tel Aviv,2025-26,"champions, europa_league"
+Malmö FF,2024-25,"champions, europa_league"
+Malmö FF,2025-26,"champions, europa_league"
+Manchester City FC,2024-25,champions
+Manchester City FC,2025-26,champions
+Manchester United FC,2024-25,europa_league
+Marsaxlokk FC,2024-25,conference
+Molde FK,2024-25,"conference, europa_league"
+MŠK Žilina,2025-26,conference
+NK Bravo,2024-25,conference
+NK Celje,2024-25,"champions, conference, europa_league"
+NK Celje,2025-26,"conference, europa_league"
+NK Maribor,2024-25,"conference, europa_league"
+NK Maribor,2025-26,conference
+NK Osijek,2024-25,conference
+NK Varaždin,2025-26,conference
+NSÍ Runavík,2025-26,conference
+Neman Grodno,2024-25,conference
+Neman Grodno,2025-26,conference
+Newcastle United FC,2025-26,champions
+OGC Nice,2024-25,europa_league
+OGC Nice,2025-26,champions
+Olimpija Ljubljana,2024-25,conference
+Olimpija Ljubljana,2025-26,"champions, conference"
+Olympiakos Piraeus,2024-25,europa_league
+Olympique Lyonnais,2024-25,europa_league
+Olympique de Marseille,2025-26,champions
+Omonia Nikosia,2024-25,conference
+Omonia Nikosia,2025-26,conference
+PAE Olympiakos SFP,2025-26,champions
+PAOK Saloniki,2024-25,"champions, europa_league"
+PAOK Saloniki,2025-26,europa_league
+PFC Ludogorets Razgrad,2024-25,"champions, europa_league"
+PFC Ludogorets Razgrad,2025-26,"champions, europa_league"
+PSV,2024-25,champions
+PSV,2025-26,champions
+Pafos FC,2025-26,champions
+Paide Linnameeskond,2024-25,conference
+Paide Linnameeskond,2025-26,conference
+Paksi SE,2024-25,"conference, europa_league"
+Paksi SE,2025-26,"conference, europa_league"
+Panathinaikos,2024-25,"conference, europa_league"
+Panathinaikos,2025-26,"champions, europa_league"
+Paphos FC,2024-25,"conference, europa_league"
+Paphos FC,2025-26,champions
+Paris Saint-Germain FC,2024-25,champions
+Paris Saint-Germain FC,2025-26,champions
+Partizan,2024-25,"champions, conference, europa_league"
+Partizan,2025-26,"conference, europa_league"
+Penybont FC,2025-26,conference
+Polissya Zhytomyr,2024-25,conference
+Polissya Zhytomyr,2025-26,conference
+Progrès Niedercorn,2024-25,conference
+Puskás FC,2024-25,conference
+Puskás FC,2025-26,conference
+Pyunik FC,2024-25,"champions, conference"
+Pyunik FC,2025-26,conference
+Qarabağ Ağdam FK,2025-26,champions
+Qarabağ FK,2024-25,"champions, europa_league"
+Qarabağ FK,2025-26,champions
+RB Leipzig,2024-25,champions
+RC Lens,2024-25,conference
+RC Strasbourg,2025-26,conference
+RFCU Luxemburg,2025-26,conference
+RSC Anderlecht,2024-25,europa_league
+RSC Anderlecht,2025-26,"conference, europa_league"
+Raków Częstochowa,2025-26,conference
+Rangers FC,2024-25,"champions, europa_league"
+Rangers FC,2025-26,champions
+Rapid Wien,2024-25,"conference, europa_league"
+Rapid Wien,2025-26,conference
+Rayo Vallecano,2025-26,conference
+Real Betis,2024-25,conference
+Real Madrid CF,2024-25,champions
+Real Madrid CF,2025-26,champions
+Real Sociedad,2024-25,europa_league
+Riga FC,2024-25,conference
+Riga FC,2025-26,conference
+Rosenborg BK,2025-26,conference
+Royale Union Saint-Gilloise,2025-26,champions
+SJK Seinäjoki,2025-26,conference
+SK Brann,2024-25,conference
+SK Brann,2025-26,"champions, europa_league"
+SK Dnipro-1,2024-25,conference
+SK Slavia Praha,2024-25,"champions, europa_league"
+SK Slavia Praha,2025-26,champions
+SK Sturm Graz,2024-25,champions
+SL Benfica,2024-25,champions
+SL Benfica,2025-26,champions
+SP La Fiorita,2024-25,conference
+SP La Fiorita,2025-26,conference
+SP Tre Fiori,2025-26,conference
+SP Tre Penne,2024-25,conference
+SS Virtus,2024-25,"champions, conference"
+SS Virtus,2025-26,"champions, conference"
+SSC Napoli,2025-26,champions
+Sabah FK,2024-25,conference
+Sabah FK,2025-26,"conference, europa_league"
+Samsunspor,2025-26,europa_league
+Servette FC,2024-25,"conference, europa_league"
+Servette FC,2025-26,"champions, conference, europa_league"
+Shamrock Rovers,2024-25,"champions, conference, europa_league"
+Shamrock Rovers,2025-26,conference
+Shelbourne FC,2024-25,conference
+Shelbourne FC,2025-26,"champions, conference, europa_league"
+Sigma Olomouc,2025-26,europa_league
+Sileks Kratovo,2025-26,conference
+Silkeborg IF,2024-25,"conference, europa_league"
+Silkeborg IF,2025-26,conference
+Sliema Wanderers,2024-25,conference
+Slovan Bratislava,2024-25,champions
+Slovan Bratislava,2025-26,"champions, europa_league"
+Spaeri FC,2025-26,conference
+Spartak Trnava,2024-25,conference
+Spartak Trnava,2025-26,"conference, europa_league"
+Sporting Charleroi,2025-26,conference
+Sporting Clube de Braga,2024-25,europa_league
+Sporting Clube de Braga,2025-26,europa_league
+Sporting Clube de Portugal,2024-25,champions
+Sporting Clube de Portugal,2025-26,champions
+St Patrick's Athletic,2024-25,conference
+St Patrick's Athletic,2025-26,conference
+St. Joseph's FC,2024-25,conference
+St. Joseph's FC,2025-26,conference
+St. Mirren FC,2024-25,conference
+Stade Brestois 29,2024-25,champions
+Sturm Graz,2025-26,champions
+Sumgayıt FK,2024-25,conference
+TSC Bačka Topola,2024-25,"conference, europa_league"
+The New Saints,2024-25,"champions, conference, europa_league"
+The New Saints,2025-26,"champions, conference"
+Tobyl Kostanay,2024-25,"conference, europa_league"
+Torpedo Kutaisi,2024-25,conference
+Torpedo Kutaisi,2025-26,conference
+Torpedo-BelAZ Zhodino,2024-25,conference
+Torpedo-BelAZ Zhodino,2025-26,conference
+Tottenham Hotspur FC,2024-25,europa_league
+Tottenham Hotspur FC,2025-26,champions
+Trabzonspor,2024-25,"conference, europa_league"
+Tromsø IL,2024-25,conference
+UE Santa Coloma,2024-25,"champions, conference, europa_league"
+UMF Stjarnan,2024-25,conference
+UNA Strassen,2024-25,conference
+UNA Strassen,2025-26,conference
+Union Saint-Gilloise,2024-25,"champions, europa_league"
+Universitatea Cluj,2025-26,conference
+Vaasan PS,2024-25,conference
+Valur Reykjavík,2024-25,conference
+Valur Reykjavík,2025-26,conference
+Vardar Skopje,2025-26,conference
+Velež Mostar,2024-25,conference
+VfB Stuttgart,2024-25,champions
+Viking FK,2025-26,conference
+Viktoria Plzeň,2024-25,europa_league
+Viktoria Plzeň,2025-26,champions
+Villarreal CF,2025-26,champions
+Vitória Guimarães,2024-25,conference
+Vojvodina,2024-25,"conference, europa_league"
+Víkingur,2024-25,conference
+Víkingur,2025-26,"champions, conference"
+Víkingur Reykjavík,2024-25,"champions, conference"
+Víkingur Reykjavík,2025-26,conference
+Wisła Kraków,2024-25,"conference, europa_league"
+Wolfsberger AC,2025-26,"conference, europa_league"
+Zira FK,2024-25,"conference, europa_league"
+Zira FK,2025-26,conference
+Zrinjski Mostar,2024-25,conference
+Zrinjski Mostar,2025-26,"champions, europa_league"
+İstanbul Başakşehir,2024-25,conference
+İstanbul Başakşehir,2025-26,conference
+Śląsk Wrocław,2024-25,conference
+ŠK Slovan Bratislava,2024-25,champions
+Željezničar Sarajevo,2025-26,conference

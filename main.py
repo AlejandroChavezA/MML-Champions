@@ -1,280 +1,115 @@
 #!/usr/bin/env python3
 """
-MML-Premier: Premier League Match Prediction System
-
-Sistema completo de predicción de partidos de la Premier League
-utilizando Machine Learning y estadísticas avanzadas.
-
-Author: OpenCode Assistant
-Date: 2025-01-15
+Champions League Predictor - Cleaned UI (data/cleaned)
+====================================================
+Minimal, safe UI using a canonical data layer in data/cleaned.
 """
 
-import sys
-import os
+import json
 from pathlib import Path
+from datetime import datetime
+import csv
 
-# Añadir directorio src al path
-project_root = Path(__file__).parent
-src_dir = project_root / "src"
-sys.path.insert(0, str(src_dir))
+BASE_YEAR = "2025-26"
+CLEAN_ROOT = Path("data/cleaned")
+CURRENT_DIR = CLEAN_ROOT / BASE_YEAR
+CURRENT_MATCHES_FILE = CURRENT_DIR / "champions_matches.json"
+TEAMS_FILE = CURRENT_DIR / "champions_teams.csv"
 
-def check_environment():
-    """Verificar que el entorno esté configurado correctamente"""
-    print(" Verificando entorno...")
-    
-    # Verificar directorios necesarios
-    required_dirs = [
-        "data",
-        "data/cleaned", 
-        "src",
-        "models"
-    ]
-    
-    for dir_name in required_dirs:
-        dir_path = project_root / dir_name
-        if not dir_path.exists():
-            if dir_name in ["models"]:
-                print(f" Creando directorio: {dir_name}")
-                dir_path.mkdir(exist_ok=True)
-            else:
-                print(f" Falta directorio requerido: {dir_name}")
-                return False
-    
-    # Verificar archivos de datos limpios
-    required_files = [
-        "data/cleaned/teams_cleaned.csv",
-        "data/cleaned/matches_2023_cleaned.csv",
-        "data/cleaned/matches_2024_cleaned.csv", 
-        "data/cleaned/matches_2025_cleaned.csv",
-        "data/cleaned/standings_2025_cleaned.csv"
-    ]
-    
-    missing_files = []
-    for file_name in required_files:
-        file_path = project_root / file_name
-        if not file_path.exists():
-            missing_files.append(file_name)
-    
-    if missing_files:
-        print(" Faltan archivos de datos:")
-        for file_name in missing_files:
-            print(f"   • {file_name}")
-        print("\n Ejecuta primero el proceso de limpieza de datos:")
-        print("   python src/data_cleaning.py")
-        return False
-    
-    print(" Entorno verificado correctamente")
-    return True
+# Helpers
 
-def display_welcome():
-    """Mostrar mensaje de bienvenida"""
-    os.system('clear' if os.name == 'posix' else 'cls')
-    
-    print("""
- P R E D I C T O R   P R E M I E R   L E A G U E 
-=====================================================
+def load_cleaned_matches(year: str = BASE_YEAR):
+    p = CLEAN_ROOT / year / "champions_matches.json"
+    if not p.exists():
+        return []
+    with open(p, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data
 
-Sistema de predicción de partidos de la Premier League
-Utilizando Machine Learning y estadísticas avanzadas
-Basado en datos históricos de 3 temporadas (2023-2025)
 
-Características:
-•  Predicciones de jornada completa
-•  Predicciones partido por partido  
-•  Estadísticas detalladas de equipos
-•  Tabla de posiciones actual
-•  Múltiples modelos de ML (Random Forest, XGBoost, LR)
+def load_teams(year: str = BASE_YEAR):
+    path = CLEAN_ROOT / year / "champions_teams.csv"
+    teams = []
+    if not path.exists():
+        return teams
+    with open(path, 'r', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        header = next(reader, None)
+        for row in reader:
+            if row:
+                teams.append(row[0])
+    return sorted(list(dict.fromkeys(teams)))
 
-=====================================================
-    """)
 
-def display_help():
-    """Mostrar ayuda del sistema"""
-    print("""
- AYUDA - SISTEMA DE PREDICCIÓN
-===============================
-
-INICIO RÁPIDO:
-   python main.py              - Iniciar menú interactivo
-   python main.py --train      - Entrenar modelos desde cero
-   python main.py --help       - Mostrar esta ayuda
-
-OPCIONES DEL MENÚ:
-
-1.  Predicción de jornada completa
-   - Selecciona una jornada (1-38)
-   - Predice todos los partidos de esa jornada
-   - Muestra confianza y resultados reales si están disponibles
-
-2.  Predicción partido por partido
-   - Selecciona equipos local y visitante
-   - Elige fecha del partido
-   - Obtén predicción detallada con probabilidades
-
-3.  Estadísticas de equipos
-   - Forma actual (últimos 5 partidos)
-   - Rendimiento local/visitante
-   - Posición en tabla de posiciones
-
-4.  Tabla de posiciones actual
-   - Clasificación completa de la Premier League
-   - Puntos, partidos jugados, diferencia de gol
-
-5.  Cambiar modelo de predicción
-   - Random Forest (mejor precisión general)
-   - Gradient Boosting (buen balance)
-   - Logistic Regression (más interpretable)
-
-6.  Rendimiento de modelos
-   - Accuracy de entrenamiento y prueba
-   - Validación cruzada
-   - Comparación entre modelos
-
- CÓMO FUNCIONA LA PREDICCIÓN:
-
-El sistema utiliza múltiples factores:
-
-• Forma reciente de equipos (últimos 5 partidos)
-• Rendimiento específico local/visitante
-• Estadísticas head-to-head históricas
-• Posición actual en la tabla
-• Diferencia de gol y puntos por partido
-• Goles marcados y recibidos por partido
-
- PRECISIÓN DEL SISTEMA:
-
-Los modelos tienen un accuracy típico de 55-65%,
-lo cual es excelente para predicciones de fútbol
-considerando la naturaleza impredecible del deporte.
-
- CONSEJOS:
-
-• Usa el modelo Random Forest para mejor precisión
-• Considera la confianza de cada predicción
-• Revisa las estadísticas de forma reciente
-• El factor local/visitante es muy importante
-• Los head-to-head pueden indicar tendencias
-
- REPORTES DE ERRORES:
-
-Si encuentras algún error, por favor reporta:
-• Mensaje de error completo
-• Qué estabas intentando hacer
-• Datos del sistema (Python, OS)
-
-=====================================================
-    """)
-
-def train_models():
-    """Entrenar modelos desde cero"""
-    print(" ENTRENANDO MODELOS DESDE CERO")
-    print("=" * 50)
-    
-    try:
-        # Importar clases necesarias
-        from feature_engineering import FeatureEngineer
-        from prediction_models import MatchPredictor
-        
-        # Inicializar componentes con rutas absolutas
-        print(" Inicializando feature engineering...")
-        fe = FeatureEngineer(data_dir="data/cleaned")
-        
-        if not fe.load_data():
-            print("Error cargando datos")
-            return False
-        
-        print(" Creando dataset de entrenamiento...")
-        features_df, targets_df = fe.create_training_dataset()
-        
-        print(f" Dataset creado: {features_df.shape[0]} partidos, {features_df.shape[1]} características")
-        
-        # Entrenar modelos
-        print(" Entrenando modelos de ML...")
-        predictor = MatchPredictor()
-        predictor.feature_engineer = fe
-        
-        if predictor.train_models(features_df, targets_df):
-            print(" Entrenamiento completado exitosamente")
-            print("\n Modelos guardados en directorio 'models/'")
-            print("Ahora puedes iniciar el menú interactivo")
-            return True
+def compute_rankings(matches):
+    standings = {}
+    for m in matches:
+        h = m.get('home_team')
+        a = m.get('away_team')
+        sh = m.get('home_score')
+        sa = m.get('away_score')
+        if h is None or a is None or sh is None or sa is None:
+            continue
+        if h not in standings:
+            standings[h] = {'played':0,'wins':0,'draws':0,'losses':0,'gf':0,'ga':0,'pts':0}
+        if a not in standings:
+            standings[a] = {'played':0,'wins':0,'draws':0,'losses':0,'gf':0,'ga':0,'pts':0}
+        standings[h]['played'] += 1
+        standings[a]['played'] += 1
+        standings[h]['gf'] += sh; standings[h]['ga'] += sa
+        standings[a]['gf'] += sa; standings[a]['ga'] += sh
+        if sh > sa:
+            standings[h]['wins'] += 1; standings[h]['pts'] += 3
+            standings[a]['losses'] += 1
+        elif sh < sa:
+            standings[a]['wins'] += 1; standings[a]['pts'] += 3
+            standings[h]['losses'] += 1
         else:
-            print(" Error en el entrenamiento")
-            return False
-            
-    except Exception as e:
-        print(f"Error durante el entrenamiento: {e}")
-        import traceback
-        traceback.print_exc()
-        return False
+            standings[h]['draws'] += 1; standings[a]['draws'] += 1
+            standings[h]['pts'] += 1; standings[a]['pts'] += 1
 
-def start_interactive_menu():
-    """Iniciar menú interactivo"""
-    try:
-        from menu_interface import PredictionMenu
-        
-        menu = PredictionMenu()
-        
-        if not menu.initialize():
-            print(" No se pudo inicializar el sistema")
-            print("\nIntenta entrenar los modelos primero:")
-            print("   python main.py --train")
-            return False
-        
-        menu.display_main_menu()
-        return True
-        
-    except Exception as e:
-        print(f" Error iniciando menú: {e}")
-        import traceback
-        traceback.print_exc()
-        return False
+    # Build ranking list
+    ranking = []
+    for t, s in standings.items():
+        gd = s['gf'] - s['ga']
+        ranking.append((t, s['pts'], s['played'], s['wins'], s['draws'], s['losses'], gd, s['gf'], s['ga']))
+    ranking.sort(key=lambda x: (x[1], x[6]), reverse=True)
+    return ranking
+
+
+def print_rankings(ranking):
+    print("\nTop 20 equipos (ranking):")
+    print("Pos  Equipo                 Pts  PJ  V  E  D  GD  GF  GA")
+    print("----" * 5)
+    for i, row in enumerate(ranking[:20], 1):
+        t, pts, played, wins, draws, losses, gd, gf, ga = row
+        print(f"{i:<4} {t:<22} {pts:<4} {played:<4} {wins:<4} {draws:<4} {losses:<4} {gd:+d} {gf:<4} {ga:<4}")
+
 
 def main():
-    """Función principal"""
-    # Parsear argumentos de línea de comandos
-    args = sys.argv[1:]
-    
-    if "--help" in args or "-h" in args:
-        display_help()
-        return
-    
-    if "--train" in args:
-        if not check_environment():
-            return
-        train_models()
-        return
-    
-    # Ejecución normal
-# display_welcome()  # Omitido para limpiar salida
-    
-    # Verificar entorno
-    if not check_environment():
-        print("\n El entorno no está configurado correctamente")
-        print("Por favor, ejecuta los scripts de preparación de datos primero")
-        return
-    
-    # Verificar si existen modelos entrenados
-    models_dir = project_root / "models"
-    has_models = any(models_dir.glob("*.pkl"))
-    
-    if not has_models:
-        print(" No se encontraron modelos entrenados")
-        print("Iniciando entrenamiento automático...")
-        
-        if not train_models():
-            print(" No se pudo completar el entrenamiento")
-            return
-    
-    # Iniciar menú interactivo
-    start_interactive_menu()
+    print("=" * 40)
+    print("PREDICTOR CHAMPIONS LEAGUE (data/cleaned)")
+    print("=" * 40)
 
-if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        print("\n\n ¡Gracias por usar el Predictor Premier League!")
-    except Exception as e:
-        print(f"\n Error inesperado: {e}")
-        import traceback
-        traceback.print_exc()
+    # Cargar datos limpios actuales
+    matches = load_cleaned_matches()
+    teams = load_teams()
+
+    if not matches:
+        print("No hay datos limpios disponibles en data/cleaned/2025-26.")
+        print("Por favor genera data limpia con el pipeline y ejecuta de nuevo.")
+        return
+
+    # 1) Predicción partido por partido (esbozo)
+    print("\n3. Prediccion partido por partido")
+    print("Requiere selección de dos equipos (Mostrando lista corta)...")
+    print("Ejemplo: seleccionar 1 y 5 para equipos 1 y 5 de la lista")
+
+    # 2) Estadísticas de equipos
+    trend = compute_rankings(matches)
+    print_rankings(trend)
+
+    print("\n8. Salir")
+
+if __name__ == '__main__':
+    main()

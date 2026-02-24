@@ -1,0 +1,12 @@
+idx1,name1,idx2,name2,similarity_raw,norm1,norm2
+88,Sporting Clube de Braga,89,Sporting Clube de Portugal,0.8571,sporting clube de braga,sporting clube de portugal
+60,Manchester City FC,61,Manchester United FC,0.8421,manchester city fc,manchester united fc
+9,Aston Villa FC,86,Sevilla FC,0.75,aston villa fc,sevilla fc
+19,CSKA Moskva,87,Spartak Moskva,0.72,cska moskva,spartak moskva
+61,Manchester United FC,64,Newcastle United FC,0.7179,manchester united fc,newcastle united fc
+7,AS Roma,52,Lazio Roma,0.7059,as roma,lazio roma
+30,FC Midtjylland,31,FC Nordsjælland,0.6897,fc midtjylland,fc nordsjlland
+58,Maccabi Haifa,59,Maccabi Tel Aviv,0.6897,maccabi haifa,maccabi tel aviv
+54,Leicester City,60,Manchester City FC,0.6875,leicester city,manchester city fc
+2,AC Sparta Praha,81,SK Slavia Praha,0.6667,ac sparta praha,sk slavia praha
+65,Olympiakos Piraeus,68,PAE Olympiakos SFP,0.6667,olympiakos piraeus,pae olympiakos sfp

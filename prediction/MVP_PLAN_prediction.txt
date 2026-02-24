@@ -1,0 +1,34 @@
+MVP Prediction Plan - Jornada y Detalles
+
+- Paso 1: Asegurar y actualizar datos canónicos de equipos de Champions (actual temporada)
+- Paso 2: Normalizar nombres de equipos a canónicos usando config/teams_mapping.csv
+- Paso 3: Definir e implementar features base (primer versión MVP)
+ [ ] F1: Últimos 5 partidos en casa y fuera (W/D/L)
+ [ ] F2: Goles a favor/promedio y contra en los últimos 5
+ [ ] F3: Head-to-head último 5 encuentros entre ambos equipos
+ [ ] F4: Indicador casa/visitante
+ [ ] F5: Días de descanso desde el último encuentro
+ [ ] F6: Proxy de fuerza de la liga (ranking) (cuando exista)
+ [ ] F7: Señal knockout/round y si aplica para estructura de jornada
+- Paso 4: Construir dataset de entrenamiento a partir de temporadas históricas
+- Paso 5: Entrenar un modelo baseline multiclass (HomeWin, Draw, AwayWin)
+- Paso 6: Validar el modelo (cross-validation) y ajustar hiperparámetros
+- Paso 7: Construir pipeline de predicción para la próxima jornada
+- Paso 8: Generar salidas
+  - Prediction by Round: predictions_by_round.csv
+  - Prediction by Match (detallada): predictions_by_match.csv con campos de features usados y explicaciones
+- Paso 9: Documentación y reporte
+- Paso 10: Integración y automatización
+  - Script de refresh de datos para Champions (consulta sources, actualiza data/ y pipelines)
+- Paso 11: Integrar coeficiente UEFA cuando esté disponible
+- Paso 12: Revisión final y plan de mejoras
+
+Notas y reglas rápidas
+- Las predicciones estarán en clase HomeWin/Draw/AwayWin.
+- Empezar con 1 jornada a la vez, y mantener logs de cambios.
+- Mantener la separación entre dataset de entrenamiento y dataset de producción (fixtures de mañana).
+- Preparar una carpeta de “audit” para registrar las decisiones de merges/alias canónicos y las selecciones de features.
+
+¿Quieres que empiece generando el MVP con este plan en caliente y te entregue:
+- Un set de scripts que implementen cada paso (data ingestion, feature engineering, training, predicción)
+- Un reporte de salida para la próxima jornada (27/28) basado en estas features?
