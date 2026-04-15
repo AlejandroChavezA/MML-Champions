@@ -20,17 +20,20 @@ Note: This is a scaffold. You should fill in the actual fetch logic and error ha
 """
 
 import os
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from config.api_config import HEADERS, API_FOOTBALL_BASE_URL, DATA_DIR
+
 def main():
-    token = os.environ.get("FOOTBALL_DATA_API_TOKEN")
-    if not token:
-        print("[WARN] FOOTBALL_DATA_API_TOKEN not set. Aborting fetch.")
+    if not HEADERS.get('X-Auth-Token'):
+        print("[WARN] API token not configured. Aborting fetch.")
         return
-    # Placeholder: you would implement API calls here using the token
-    # and then normalize names using the existing mapping, then write to CSV.
-    print("[INFO] Placeholder: fetch Champions data using Football-Data API.")
-    print("This module needs to be wired to real API calls and integrated with existing CSV generation.")
+    
+    print(f"[INFO] Using API: {API_FOOTBALL_BASE_URL}")
+    print(f"[INFO] Data directory: {DATA_DIR}")
+    print("[INFO] Ready to fetch Champions data using Football-Data API.")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,6 @@
+{
+  "python.defaultInterpreterPath": "/Users/sas/Documents/Github/Champions-League-Predictor/premier-league-env-new/bin/python",
+  "python.analysis.extraPaths": [
+    "/Users/sas/Documents/Github/Champions-League-Predictor"
+  ]
+}

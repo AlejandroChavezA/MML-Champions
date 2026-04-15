@@ -1,0 +1,229 @@
+{
+  "metadata": {
+    "competition": "UEFA Europa League & Conference League",
+    "data_source": "TheSportsDB API",
+    "export_date": "2026-03-12",
+    "api_version": "v1",
+    "total_matches": 4
+  },
+  "matches": [
+    {
+      "date": "2026-02-26",
+      "time": "20:00:00",
+      "home_team": "Nottingham Forest",
+      "away_team": "Fenerbahçe",
+      "stage": "Round 32",
+      "jornada": 32,
+      "home_score": 1,
+      "away_score": 2,
+      "status": "Match Finished",
+      "league": "UEFA Europa League",
+      "season": "2025-2026",
+      "venue": "City Ground",
+      "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png",
+      "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "17:45:00",
+      "home_team": "Lille",
+      "away_team": "Aston Villa",
+      "stage": "Round 16",
+      "jornada": 16,
+      "home_score": 0,
+      "away_score": 0,
+      "status": "halftime",
+      "league": "UEFA Europa League",
+      "season": "2025-2026",
+      "venue": "Decathlon Arena - Stade Pierre-Mauroy",
+      "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png",
+      "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png"
+    },
+    {
+      "date": "2026-02-26",
+      "time": "17:45:00",
+      "home_team": "Samsunspor",
+      "away_team": "Shkëndija",
+      "stage": "Round 32",
+      "jornada": 32,
+      "home_score": 4,
+      "away_score": 0,
+      "status": "Match Finished",
+      "league": "UEFA Conference League",
+      "season": "2025-2026",
+      "venue": "Samsun 19 Mayıs Stadyumu",
+      "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/vz05y71679456608.png",
+      "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/4wv7i21717397649.png"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "20:00:00",
+      "home_team": "Crystal Palace",
+      "away_team": "AEK Larnaca",
+      "stage": "Round 16",
+      "jornada": 16,
+      "home_score": null,
+      "away_score": null,
+      "status": "scheduled",
+      "league": "UEFA Conference League",
+      "season": "2025-2026",
+      "venue": "Selhurst Park",
+      "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png",
+      "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/150a2b1544814418.png"
+    }
+  ],
+  "by_league": {
+    "UEFA Europa League": {
+      "league_id": "4481",
+      "total_matches": 2,
+      "matches": [
+        {
+          "date": "2026-02-26",
+          "time": "20:00:00",
+          "home_team": "Nottingham Forest",
+          "away_team": "Fenerbahçe",
+          "stage": "Round 32",
+          "jornada": 32,
+          "home_score": 1,
+          "away_score": 2,
+          "status": "Match Finished",
+          "league": "UEFA Europa League",
+          "season": "2025-2026",
+          "venue": "City Ground",
+          "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png",
+          "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png"
+        },
+        {
+          "date": "2026-03-12",
+          "time": "17:45:00",
+          "home_team": "Lille",
+          "away_team": "Aston Villa",
+          "stage": "Round 16",
+          "jornada": 16,
+          "home_score": 0,
+          "away_score": 0,
+          "status": "halftime",
+          "league": "UEFA Europa League",
+          "season": "2025-2026",
+          "venue": "Decathlon Arena - Stade Pierre-Mauroy",
+          "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png",
+          "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png"
+        }
+      ],
+      "jornadas": {
+        "32": [
+          {
+            "date": "2026-02-26",
+            "time": "20:00:00",
+            "home_team": "Nottingham Forest",
+            "away_team": "Fenerbahçe",
+            "stage": "Round 32",
+            "jornada": 32,
+            "home_score": 1,
+            "away_score": 2,
+            "status": "Match Finished",
+            "league": "UEFA Europa League",
+            "season": "2025-2026",
+            "venue": "City Ground",
+            "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png",
+            "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png"
+          }
+        ],
+        "16": [
+          {
+            "date": "2026-03-12",
+            "time": "17:45:00",
+            "home_team": "Lille",
+            "away_team": "Aston Villa",
+            "stage": "Round 16",
+            "jornada": 16,
+            "home_score": 0,
+            "away_score": 0,
+            "status": "halftime",
+            "league": "UEFA Europa League",
+            "season": "2025-2026",
+            "venue": "Decathlon Arena - Stade Pierre-Mauroy",
+            "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png",
+            "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png"
+          }
+        ]
+      }
+    },
+    "UEFA Conference League": {
+      "league_id": "5071",
+      "total_matches": 2,
+      "matches": [
+        {
+          "date": "2026-02-26",
+          "time": "17:45:00",
+          "home_team": "Samsunspor",
+          "away_team": "Shkëndija",
+          "stage": "Round 32",
+          "jornada": 32,
+          "home_score": 4,
+          "away_score": 0,
+          "status": "Match Finished",
+          "league": "UEFA Conference League",
+          "season": "2025-2026",
+          "venue": "Samsun 19 Mayıs Stadyumu",
+          "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/vz05y71679456608.png",
+          "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/4wv7i21717397649.png"
+        },
+        {
+          "date": "2026-03-12",
+          "time": "20:00:00",
+          "home_team": "Crystal Palace",
+          "away_team": "AEK Larnaca",
+          "stage": "Round 16",
+          "jornada": 16,
+          "home_score": null,
+          "away_score": null,
+          "status": "scheduled",
+          "league": "UEFA Conference League",
+          "season": "2025-2026",
+          "venue": "Selhurst Park",
+          "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png",
+          "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/150a2b1544814418.png"
+        }
+      ],
+      "jornadas": {
+        "32": [
+          {
+            "date": "2026-02-26",
+            "time": "17:45:00",
+            "home_team": "Samsunspor",
+            "away_team": "Shkëndija",
+            "stage": "Round 32",
+            "jornada": 32,
+            "home_score": 4,
+            "away_score": 0,
+            "status": "Match Finished",
+            "league": "UEFA Conference League",
+            "season": "2025-2026",
+            "venue": "Samsun 19 Mayıs Stadyumu",
+            "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/vz05y71679456608.png",
+            "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/4wv7i21717397649.png"
+          }
+        ],
+        "16": [
+          {
+            "date": "2026-03-12",
+            "time": "20:00:00",
+            "home_team": "Crystal Palace",
+            "away_team": "AEK Larnaca",
+            "stage": "Round 16",
+            "jornada": 16,
+            "home_score": null,
+            "away_score": null,
+            "status": "scheduled",
+            "league": "UEFA Conference League",
+            "season": "2025-2026",
+            "venue": "Selhurst Park",
+            "home_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png",
+            "away_team_badge": "https://r2.thesportsdb.com/images/media/team/badge/150a2b1544814418.png"
+          }
+        ]
+      }
+    }
+  }
+}
