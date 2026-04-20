@@ -1,0 +1,234 @@
+[
+  {
+    "sport": "soccer",
+    "homeTeam": "ARS",
+    "homeTeamFullName": "Arsenal FC",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "RMA",
+    "awayTeamFullName": "Real Madrid CF",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "ARS",
+    "confidence": 36,
+    "riskLevel": "high",
+    "gameDate": "2026-04-08",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - IDA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 37%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 63%"
+      ],
+      "summary": {
+        "winnerFactors": 3,
+        "loserFactors": 6,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "ARS with 37% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "BAY",
+    "homeTeamFullName": "FC Bayern M\u00fcnchen",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "INT",
+    "awayTeamFullName": "FC Internazionale Milano",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "BAY",
+    "confidence": 61,
+    "riskLevel": "medium",
+    "gameDate": "2026-04-08",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - IDA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 62%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 38%"
+      ],
+      "summary": {
+        "winnerFactors": 6,
+        "loserFactors": 3,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "BAY with 62% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "BAR",
+    "homeTeamFullName": "FC Barcelona",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "BVB",
+    "awayTeamFullName": "Borussia Dortmund",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "BAR",
+    "confidence": 59,
+    "riskLevel": "medium",
+    "gameDate": "2026-04-09",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - IDA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 59%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 41%"
+      ],
+      "summary": {
+        "winnerFactors": 5,
+        "loserFactors": 4,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "BAR with 59% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "PSG",
+    "homeTeamFullName": "Paris Saint-Germain FC",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "LIV",
+    "awayTeamFullName": "Liverpool FC",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "PSG",
+    "confidence": 37,
+    "riskLevel": "high",
+    "gameDate": "2026-04-09",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - IDA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 37%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 63%"
+      ],
+      "summary": {
+        "winnerFactors": 3,
+        "loserFactors": 6,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "PSG with 37% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "RMA",
+    "homeTeamFullName": "Real Madrid CF",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "ARS",
+    "awayTeamFullName": "Arsenal FC",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "RMA",
+    "confidence": 40,
+    "riskLevel": "high",
+    "gameDate": "2026-04-16",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - VUELTA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 40%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 60%"
+      ],
+      "summary": {
+        "winnerFactors": 4,
+        "loserFactors": 5,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "RMA with 40% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "INT",
+    "homeTeamFullName": "FC Internazionale Milano",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "BAY",
+    "awayTeamFullName": "FC Bayern M\u00fcnchen",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "BAY",
+    "confidence": 49,
+    "riskLevel": "high",
+    "gameDate": "2026-04-16",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - VUELTA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 49%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 51%"
+      ],
+      "summary": {
+        "winnerFactors": 4,
+        "loserFactors": 5,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "BAY with 49% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "BVB",
+    "homeTeamFullName": "Borussia Dortmund",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "BAR",
+    "awayTeamFullName": "FC Barcelona",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "BAR",
+    "confidence": 34,
+    "riskLevel": "high",
+    "gameDate": "2026-04-17",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - VUELTA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 34%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 66%"
+      ],
+      "summary": {
+        "winnerFactors": 3,
+        "loserFactors": 6,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "BAR with 34% confidence"
+      }
+    }
+  },
+  {
+    "sport": "soccer",
+    "homeTeam": "LIV",
+    "homeTeamFullName": "Liverpool FC",
+    "homeTeamLogo": "/team-logos/soccer/soccer.png",
+    "awayTeam": "PSG",
+    "awayTeamFullName": "Paris Saint-Germain FC",
+    "awayTeamLogo": "/team-logos/soccer/soccer.png",
+    "predictedWinner": "LIV",
+    "confidence": 50,
+    "riskLevel": "high",
+    "gameDate": "2026-04-17",
+    "status": "active",
+    "notes": "Champions League - Cuartos de Final - VUELTA",
+    "arguments": {
+      "forWinner": [
+        "Confianza del modelo: 50%"
+      ],
+      "forLoser": [
+        "Factor de riesgo: 50%"
+      ],
+      "summary": {
+        "winnerFactors": 5,
+        "loserFactors": 4,
+        "matchupType": "champions_quartos",
+        "betRecommendation": "LIV with 50% confidence"
+      }
+    }
+  }
+]

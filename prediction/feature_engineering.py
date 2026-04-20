@@ -169,8 +169,13 @@ def compute_head_to_head(home: str, away: str, up_to_date: str, history: pd.Data
     hh = history[mask].sort_values("date").tail(n)
     home_w = away_w = draw = 0
     for _, r in hh.iterrows():
-        gh = int(r.get("home_score", 0) or 0)
-        ga = int(r.get("away_score", 0) or 0)
+        gh = r.get("home_score")
+        ga = r.get("away_score")
+        # Handle NaN values
+        if pd.isna(gh) or pd.isna(ga):
+            continue
+        gh = int(gh)
+        ga = int(ga)
         if r["home_team"] == home and r["away_team"] == away:
             if gh > ga:
                 home_w += 1

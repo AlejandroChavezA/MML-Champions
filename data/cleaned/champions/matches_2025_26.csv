@@ -175,10 +175,10 @@ id,date,matchday,home_team,away_team,home_score,away_score,status
 552077,2026-03-18T20:00:00Z,2,Liverpool FC,Galatasaray SK,4.0,0.0,FINISHED
 552079,2026-03-18T20:00:00Z,2,FC Bayern München,Atalanta BC,4.0,1.0,FINISHED
 552081,2026-03-18T20:00:00Z,2,Tottenham Hotspur FC,Club Atlético de Madrid,3.0,2.0,FINISHED
-556719,2026-04-07T19:00:00Z,1,Real Madrid CF,FC Bayern München,,,TIMED
-556721,2026-04-07T19:00:00Z,1,Sporting Clube de Portugal,Arsenal FC,,,TIMED
-556718,2026-04-08T19:00:00Z,1,Paris Saint-Germain FC,Liverpool FC,,,TIMED
-556720,2026-04-08T19:00:00Z,1,FC Barcelona,Club Atlético de Madrid,,,TIMED
+556719,2026-04-07T19:00:00Z,1,Real Madrid CF,FC Bayern München,1.0,2.0,FINISHED
+556721,2026-04-07T19:00:00Z,1,Sporting Clube de Portugal,Arsenal FC,0.0,1.0,FINISHED
+556718,2026-04-08T19:00:00Z,1,Paris Saint-Germain FC,Liverpool FC,2.0,0.0,FINISHED
+556720,2026-04-08T19:00:00Z,1,FC Barcelona,Club Atlético de Madrid,0.0,2.0,FINISHED
 556722,2026-04-14T19:00:00Z,2,Liverpool FC,Paris Saint-Germain FC,,,TIMED
 556724,2026-04-14T19:00:00Z,2,Club Atlético de Madrid,FC Barcelona,,,TIMED
 556723,2026-04-15T19:00:00Z,2,FC Bayern München,Real Madrid CF,,,TIMED

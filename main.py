@@ -238,7 +238,8 @@ def predict_match_ml(home_team, away_team, match_date=None, matchday=None):
             'home_prob': home_prob,
             'away_prob': away_prob,
             'draw_prob': draw_prob,
-            'features': features
+            'features': features,
+            'numeric_features': numeric
         }
     except Exception as e:
         # Fallback to history-based prediction
@@ -410,6 +411,21 @@ def option_2_predict_round_detailed(matches, teams):
     print("PREDICCIÓN POR JORNADA (DETALLADA)")
     print("=" * 60)
 
+    print("\nSelecciona tipo de predicción:")
+    print("1. Por jornada (fase de grupos)")
+    print("2. Por fase eliminatoria")
+    
+    try:
+        type_choice = input("\nSelecciona opción (1-2): ")
+    except ValueError:
+        return
+    
+    if type_choice == "2":
+        # Phase-based prediction
+        option_8_predict_by_phase_detailed(matches, teams)
+        return
+    
+    # Continue with jornada-based prediction (original)
     matchdays = sorted(set(m.get('matchday', 0) for m in matches if m.get('matchday')))
     if not matchdays:
         print("No hay jornadas disponibles.")
@@ -655,6 +671,224 @@ def get_phase_from_match(m):
         return 'UNKNOWN'
 
 
+def option_8_predict_by_phase_detailed(matches, teams):
+    """Predicción detallada por fase con formato de análisis completo"""
+    print("\n" + "=" * 60)
+    print("PREDICCIÓN POR FASE (DETALLADA)")
+    print("=" * 60)
+    
+    phases = {
+        'GRUPO': 'Fase de Grupos',
+        '16AVOS': 'Dieciseisavos (Playoff)',
+        'OCTAVOS': 'Octavos de Final',
+        'CUARTOS': 'Cuartos de Final',
+        'SEMIS': 'Semifinales',
+        'FINAL': 'Final'
+    }
+    
+    print("\nSelecciona una fase:")
+    print("1. Fase de Grupos")
+    print("2. Dieciseisavos (Playoff)")
+    print("3. Octavos de Final")
+    print("4. Cuartos de Final")
+    print("5. Semifinales")
+    print("6. Final")
+    
+    choice = input("\nSelecciona opción (1-6): ")
+    
+    phase_map = {
+        '1': 'GRUPO',
+        '2': '16AVOS',
+        '3': 'OCTAVOS',
+        '4': 'CUARTOS',
+        '5': 'SEMIS',
+        '6': 'FINAL'
+    }
+    
+    if choice not in phase_map:
+        return
+    
+    phase = phase_map[choice]
+    phase_matches = [m for m in matches if get_phase_from_match(m) == phase]
+    
+    if not phase_matches:
+        print(f"\nNo hay partidos en la fase de {phases[phase]}.")
+        input("\nPresiona Enter para continuar...")
+        return
+    
+    # For knockout phases, ask about ida/vuelta
+    leg_name = ""
+    if phase in ['16AVOS', 'OCTAVOS', 'CUARTOS', 'SEMIS']:
+        print(f"\nFase {phases[phase]}:")
+        print("1. Todos los partidos")
+        print("2. Solo IDA")
+        print("3. Solo VUELTA")
+        
+        leg_choice = input("\nSelecciona opción (1-3): ")
+        
+        if leg_choice == "2":
+            phase_matches = sorted(phase_matches, key=lambda x: x.get('date', ''))[:len(phase_matches)//2]
+            leg_name = "(IDA)"
+        elif leg_choice == "3":
+            phase_matches = sorted(phase_matches, key=lambda x: x.get('date', ''))[len(phase_matches)//2:]
+            leg_name = "(VUELTA)"
+    
+    # Header
+    print("\n" + "=" * 60)
+    print("PREDICCIÓN POR JORNADA (DETALLADA)")
+    print("=" * 60)
+    
+    phase_display = f"UCL 2025/26 — {phases[phase]} {leg_name}"
+    print(f"\n{phase_display}")
+    
+    completed = len([m for m in matches if m.get('status') == 'FINISHED'])
+    print(f"Fases completadas: {completed}")
+    print(f"Próxima fase: {phases[phase]} {leg_name}")
+    print("=" * 60)
+    
+    # Stats
+    local_wins = 0
+    away_wins = 0
+    draw_count = 0
+    total_conf = 0
+    
+    # Process each match
+    for m in phase_matches:
+        home = m.get('home_team', 'N/A')
+        away = m.get('away_team', 'N/A')
+        date = m.get('date', 'N/A')
+        status = m.get('status', 'SCHEDULED')
+        
+        # Format date
+        try:
+            from datetime import datetime
+            dt = datetime.fromisoformat(date.replace('Z', '+00:00'))
+            date_formatted = dt.strftime("%d %b %Y · %H:%M CET")
+        except:
+            date_formatted = date[:10]
+        
+        print(f"\n{'─' * 60}")
+        print(f"⚽ PARTIDO: {home[:3].upper()} @ {away[:3].upper()}")
+        print(f"📅 {date_formatted}")
+        print("─" * 60)
+        
+        result = predict_match_ml(home, away, match_date=m.get('date'), matchday=m.get('matchday'))
+        if not result:
+            result = predict_match(home, away, matches)
+        
+        if result:
+            pred = result['prediction']
+            conf = result['confidence']
+            total_conf += conf
+            
+            if pred == "LOCAL":
+                icon = "🏠"
+                local_wins += 1
+                winner = home
+            elif pred == "VISITANTE":
+                icon = "✈️"
+                away_wins += 1
+                winner = away
+            else:
+                icon = "🤝"
+                draw_count += 1
+                winner = "EMPATE"
+            
+            print(f"\n🎯 EL MODELO DICE: {icon} GANA {winner}")
+            print(f"   Confianza: {conf:.1f}%")
+            print(f"   {home}: {result['home_prob']:.1f}% chance | {away}: {result['away_prob']:.1f}% chance | Empate: {result['draw_prob']:.1f}% chance")
+            
+            # Generate REAL factors based on features
+            print(f"\n✅ ¿POR QUÉ FAVORECE A {winner}?")
+            print("─" * 60)
+            
+            factors_for = []
+            numeric = result.get('numeric_features', {})
+            
+            if winner == home:
+                if numeric.get('home_last5_w', 0) >= 3:
+                    factors_for.append(f"Ganó {int(numeric.get('home_last5_w', 0))} de sus últimos 5")
+                if numeric.get('home_uefa_coef', 0) > numeric.get('away_uefa_coef', 0):
+                    diff = numeric.get('uefa_coef_diff', 0)
+                    factors_for.append(f"Mejor coeficiente UEFA (+{diff:.0f})")
+                if numeric.get('home_goals_for', 0) > numeric.get('away_goals_for', 0):
+                    factors_for.append(f"Mejor ataque: {numeric.get('home_goals_for', 0):.1f} goles")
+                if numeric.get('home_days_rest', 0) > numeric.get('away_days_rest', 0) + 1:
+                    factors_for.append(f"Más días de descanso ({int(numeric.get('home_days_rest', 0))} vs {int(numeric.get('away_days_rest', 0))})")
+                if numeric.get('h2h_home_w', 0) > numeric.get('h2h_away_w', 0):
+                    factors_for.append(f"H2H favorable: {int(numeric.get('h2h_home_w', 0))}V vs {int(numeric.get('h2h_away_w', 0))}V")
+            else:  # winner is away
+                if numeric.get('away_last5_w', 0) >= 3:
+                    factors_for.append(f"Ganó {int(numeric.get('away_last5_w', 0))} de sus últimos 5")
+                if numeric.get('away_uefa_coef', 0) > numeric.get('home_uefa_coef', 0):
+                    diff = numeric.get('uefa_coef_diff', 0)
+                    factors_for.append(f"Mejor coeficiente UEFA (+{abs(diff):.0f})")
+                if numeric.get('away_goals_for', 0) > numeric.get('home_goals_for', 0):
+                    factors_for.append(f"Mejor ataque: {numeric.get('away_goals_for', 0):.1f} goles")
+                if numeric.get('away_days_rest', 0) > numeric.get('home_days_rest', 0) + 1:
+                    factors_for.append(f"Más días de descanso ({int(numeric.get('away_days_rest', 0))} vs {int(numeric.get('home_days_rest', 0))})")
+                if numeric.get('h2h_away_w', 0) > numeric.get('h2h_home_w', 0):
+                    factors_for.append(f"H2H favorable: {int(numeric.get('h2h_away_w', 0))}V vs {int(numeric.get('h2h_home_w', 0))}V")
+            
+            # Add some generic positive factors if not enough
+            if len(factors_for) < 4:
+                if conf > 55:
+                    factors_for.append(f"Confianza del modelo: {conf:.0f}%")
+                factors_for.append(f"Partido de eliminatoria - todo puede pasar")
+            
+            for i, f in enumerate(factors_for[:4], 1):
+                print(f"  {i}. {f} ⭐")
+            
+            # Factors against
+            print(f"\n❌ ¿QUÉ FAVORECE A {away if winner == home else home}?")
+            print("─" * 60)
+            
+            factors_against = []
+            loser = away if winner == home else home
+            
+            if loser == home:
+                if numeric.get('home_last5_l', 0) >= 2:
+                    factors_against.append(f"Perdió {int(numeric.get('home_last5_l', 0))} de sus últimos 5")
+                if numeric.get('away_goals_for', 0) > numeric.get('home_goals_for', 0):
+                    factors_against.append(f"Peor ataque que el rival: {numeric.get('home_goals_for', 0):.1f} vs {numeric.get('away_goals_for', 0):.1f}")
+                if numeric.get('away_uefa_coef', 0) > numeric.get('home_uefa_coef', 0):
+                    factors_against.append(f"Coeficiente UEFA inferior")
+                if result['draw_prob'] > 20:
+                    factors_against.append(f"Alta probabilidad de empate ({result['draw_prob']:.0f}%)")
+            else:  # loser is away
+                if numeric.get('away_last5_l', 0) >= 2:
+                    factors_against.append(f"Perdió {int(numeric.get('away_last5_l', 0))} de sus últimos 5")
+                if numeric.get('home_goals_for', 0) > numeric.get('away_goals_for', 0):
+                    factors_against.append(f"Peor ataque que el rival")
+                if numeric.get('home_uefa_coef', 0) > numeric.get('away_uefa_coef', 0):
+                    factors_against.append(f"Coeficiente UEFA inferior")
+                if result['draw_prob'] > 20:
+                    factors_against.append(f"Alta probabilidad de empate ({result['draw_prob']:.0f}%)")
+            
+            # Add generic negative factors if not enough
+            if len(factors_against) < 4:
+                factors_against.append(f"Juega como visitante")
+                factors_against.append(f"Partido de vuelta puede revertir todo")
+            
+            for i, f in enumerate(factors_against[:4], 1):
+                print(f"  {i}. {f} ⭐")
+    
+    # Summary
+    avg_conf = total_conf / len(phase_matches) if phase_matches else 0
+    print(f"\n{'─' * 60}")
+    print(f"📊 RESUMEN — UCL {phases[phase].upper()} {leg_name}")
+    print("─" * 60)
+    print(f"Victorias locales pred.:    {local_wins}")
+    print(f"Victorias visitantes pred.: {away_wins}")
+    print(f"Empates pred.:              {draw_count}")
+    print(f"Total partidos:             {len(phase_matches)}")
+    print(f"Confianza promedio:         {avg_conf:.1f}%")
+    print(f"Modelo utilizado:           random_forest")
+    print("─" * 60)
+    
+    input("\nPresiona Enter para continuar...")
+
+
 def option_8_predict_by_phase(matches, teams):
     print("\n" + "=" * 60)
     print("PREDICCIÓN POR FASE")
@@ -707,7 +941,7 @@ def option_8_predict_by_phase(matches, teams):
         return
     
     # For knockout phases, ask about ida/vuelta
-    if phase in ['16AVOS', 'OCTAVOS', 'CUARTOS', 'SEMIS']:
+    if phase in ['16AVOS', 'OCTAVOS']:
         print(f"\nFase {phases[phase]}:")
         print("1. Todos los partidos")
         print("2. Solo partidos de IDA")
@@ -1081,40 +1315,34 @@ def main():
         print("=" * 50)
         print("1.  Predicción de jornada completa")
         print("2.  Predicción por jornada (detalles)")
-        print("3.  Predicción partido por partido")
+        print("3.  Predicción por fase")
         print("4.  Estadísticas de equipos")
-        print("5.  Ver tabla de posiciones actual")
-        print("6.  Cambiar modelo de predicción")
-        print("7.  Rendimiento de modelos")
-        print("8.  Predicción por fase")
-        print("9.  Cambiar competición")
-        print("10. Salir")
+        print("5.  Cambiar modelo de predicción")
+        print("6.  Rendimiento de modelos")
+        print("7.  Cambiar competición")
+        print("8.  Salir")
         print("=" * 50)
 
-        option = input("Selecciona una opción (1-10): ")
+        option = input("Selecciona una opción (1-8): ")
 
         if option == "1":
             option_1_predict_round(matches, teams)
         elif option == "2":
             option_2_predict_round_detailed(matches, teams)
         elif option == "3":
-            option_3_predict_match(teams, matches)
+            option_8_predict_by_phase(matches, teams)
         elif option == "4":
             option_4_team_stats(teams, matches)
         elif option == "5":
-            option_5_rankings(matches)
-        elif option == "6":
             option_6_change_model()
-        elif option == "7":
+        elif option == "6":
             option_7_model_performance()
-        elif option == "8":
-            option_8_predict_by_phase(matches, teams)
-        elif option == "9":
+        elif option == "7":
             change_league()
             league_name = LEAGUES[current_league]['name']
             matches = load_cleaned_matches()
             teams = load_teams()
-        elif option == "10":
+        elif option == "8":
             print("\n¡Hasta luego!")
             break
         else:
