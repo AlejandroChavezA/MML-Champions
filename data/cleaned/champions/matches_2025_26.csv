@@ -179,12 +179,12 @@ id,date,matchday,home_team,away_team,home_score,away_score,status
 556721,2026-04-07T19:00:00Z,1,Sporting Clube de Portugal,Arsenal FC,0.0,1.0,FINISHED
 556718,2026-04-08T19:00:00Z,1,Paris Saint-Germain FC,Liverpool FC,2.0,0.0,FINISHED
 556720,2026-04-08T19:00:00Z,1,FC Barcelona,Club Atlético de Madrid,0.0,2.0,FINISHED
-556722,2026-04-14T19:00:00Z,2,Liverpool FC,Paris Saint-Germain FC,,,TIMED
-556724,2026-04-14T19:00:00Z,2,Club Atlético de Madrid,FC Barcelona,,,TIMED
-556723,2026-04-15T19:00:00Z,2,FC Bayern München,Real Madrid CF,,,TIMED
-556725,2026-04-15T19:00:00Z,2,Arsenal FC,Sporting Clube de Portugal,,,TIMED
-552092,2026-04-28T00:00:00Z,1,,,,,SCHEDULED
-552093,2026-04-29T00:00:00Z,1,,,,,SCHEDULED
-552094,2026-05-05T00:00:00Z,2,,,,,SCHEDULED
-552095,2026-05-06T00:00:00Z,2,,,,,SCHEDULED
+556722,2026-04-14T19:00:00Z,2,Liverpool FC,Paris Saint-Germain FC,0.0,2.0,FINISHED
+556724,2026-04-14T19:00:00Z,2,Club Atlético de Madrid,FC Barcelona,1.0,2.0,FINISHED
+556723,2026-04-15T19:00:00Z,2,FC Bayern München,Real Madrid CF,4.0,3.0,FINISHED
+556725,2026-04-15T19:00:00Z,2,Arsenal FC,Sporting Clube de Portugal,0.0,0.0,FINISHED
+552092,2026-04-28T19:00:00Z,1,Paris Saint-Germain FC,FC Bayern München,,,TIMED
+552093,2026-04-29T19:00:00Z,1,Club Atlético de Madrid,Arsenal FC,,,TIMED
+552095,2026-05-05T19:00:00Z,2,Arsenal FC,Club Atlético de Madrid,,,TIMED
+552094,2026-05-06T19:00:00Z,2,FC Bayern München,Paris Saint-Germain FC,,,TIMED
 552096,2026-05-30T16:00:00Z,,,,,,TIMED
